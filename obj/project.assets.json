@@ -275,7 +275,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/9.0.0": {
+      "Microsoft.AspNetCore.OpenApi/7.0.0": {
         "type": "package"
       },
       "Microsoft.AspNetCore.ResponseCaching.Abstractions/2.3.0": {
@@ -1883,19 +1883,18 @@
         "microsoft.aspnetcore.mvc.dataannotations.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.OpenApi/9.0.0": {
-      "sha512": "FqUK5j1EOPNuFT7IafltZQ3cakqhSwVzH5ZW1MhZDe4pPXs9sJ2M5jom1Omsu+mwF2tNKKlRAzLRHQTZzbd+6Q==",
+    "Microsoft.AspNetCore.OpenApi/7.0.0": {
+      "sha512": "P1mkNhZ3IwU3phNLIUkgqVXb1exnooTalIYwpSON3oKKkcRtACDgS4WpO+xnwFw4KzV0bmgkUqB3acXxIefvvg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.openapi/9.0.0",
+      "path": "microsoft.aspnetcore.openapi/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net9.0/Microsoft.AspNetCore.OpenApi.dll",
-        "lib/net9.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+        "lib/net7.0/Microsoft.AspNetCore.OpenApi.dll",
+        "lib/net7.0/Microsoft.AspNetCore.OpenApi.xml",
+        "microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
@@ -5444,7 +5443,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Microsoft.AspNetCore.OpenApi >= 9.0.0",
+      "Microsoft.AspNetCore.OpenApi >= 6.0.10",
       "MongoDB.Driver >= 3.3.0",
       "Swashbuckle.AspNetCore >= 8.1.1"
     ]
@@ -5501,7 +5500,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
-            "version": "[9.0.0, )"
+            "version": "[6.0.10, )"
           },
           "MongoDB.Driver": {
             "target": "Package",
@@ -5555,6 +5554,16 @@
   },
   "logs": [
     {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "TaskManagerAPI depends on Microsoft.AspNetCore.OpenApi (>= 6.0.10) but Microsoft.AspNetCore.OpenApi 6.0.10 was not found. Microsoft.AspNetCore.OpenApi 7.0.0 was resolved instead.",
+      "libraryId": "Microsoft.AspNetCore.OpenApi",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
@@ -5567,7 +5576,7 @@
     {
       "code": "NU1202",
       "level": "Error",
-      "message": "Package Microsoft.AspNetCore.OpenApi 9.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.AspNetCore.OpenApi 9.0.0 supports: net9.0 (.NETCoreApp,Version=v9.0)",
+      "message": "Package Microsoft.AspNetCore.OpenApi 7.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.AspNetCore.OpenApi 7.0.0 supports: net7.0 (.NETCoreApp,Version=v7.0)",
       "libraryId": "Microsoft.AspNetCore.OpenApi",
       "targetGraphs": [
         "net6.0"

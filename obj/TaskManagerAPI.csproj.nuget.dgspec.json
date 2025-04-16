@@ -50,10 +50,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[6.0.10, )"
-            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.3.0, )"

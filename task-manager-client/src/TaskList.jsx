@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { motion, AnimatePresence } from "framer-motion";
+
+
 
 const API_URL = "http://localhost:5012/api/task";
 
@@ -34,18 +38,60 @@ function TaskList() {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitting new task:", newTask); // ← Add this
+    console.log("Submitting new task:", newTask);
   
     axios.post(API_URL, newTask)
+      .then((res) => {
+        setTasks((prev) => [...prev, res.data]);
+        setNewTask({ title: "", description: "", isComplete: false });
+        toast.success("Task added successfully!");
+      })
+      .catch(err => {
+        console.error("Error adding task:", err);
+        toast.error("Failed to add task.");
+      });
+  };
+  
+
+  
+  
+  // DELETE request
+  const handleDelete = (id) => {
+    axios.delete(`${API_URL}/${id}`)
       .then(() => {
         fetchTasks();
-        setNewTask({ title: "", description: "", isComplete: false });
+        toast.success("Task deleted.");
       })
-      .catch(err => console.error("Error adding task:", err));
+      .catch(err => {
+        console.error("Error deleting task:", err);
+        toast.error("Failed to delete task.");
+      });
   };
+  
+  
+  // PUT request to toggle isComplete
+  const handleToggle = (task) => {
+    const updatedTask = { ...task, isComplete: !task.isComplete };
+    axios.put(`${API_URL}/${task.id}`, updatedTask)
+      .then(() => {
+        fetchTasks();
+        toast.success(
+          `Marked as ${updatedTask.isComplete ? "complete ✅" : "pending ❌"}`
+        );
+      })
+      .catch(err => {
+        console.error("Error updating task:", err);
+        toast.error("Failed to update task.");
+      });
+  };
+  
+  
+    <Toaster position="top-right" reverseOrder={false} />
 
   return (
+    
     <div className="p-4 max-w-xl mx-auto">
+    <Toaster position="top-right" reverseOrder={false} />
       <h1 className="text-2xl font-bold mb-4 text-gray-800">My Tasks</h1>
 
       {/* Task Form */}
@@ -82,16 +128,43 @@ function TaskList() {
 
       {/* Task List */}
       <ul className="space-y-3">
-        {tasks.map(task => (
-          <li key={task.id} className="p-4 bg-white border rounded shadow">
-            <h2 className="font-semibold">{task.title}</h2>
-            <p>{task.description}</p>
-            <p className="text-sm text-gray-500">
-              Status: {task.isComplete ? "✅ Done" : "❌ Pending"}
-            </p>
-          </li>
-        ))}
-      </ul>
+        <AnimatePresence>
+            {tasks.map(task => (
+            <motion.li
+                key={task.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                layout
+                className="p-4 bg-white border rounded shadow"
+            >
+                <h2 className="text-lg font-bold text-gray-900">{task.title}</h2>
+                <p className="text-gray-700">{task.description}</p>
+                <div className="flex items-center justify-between mt-2">
+                <p className="text-sm text-gray-500">
+                    Status: {task.isComplete ? "✅ Done" : "❌ Pending"}
+                </p>
+                <div className="space-x-2">
+                    <button
+                    onClick={() => handleToggle(task)}
+                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded"
+                    >
+                    Toggle
+                    </button>
+                    <button
+                    onClick={() => handleDelete(task.id)}
+                    className="px-2 py-1 text-xs bg-red-600 text-white rounded"
+                    >
+                    Delete
+                    </button>
+                </div>
+                </div>
+            </motion.li>
+            ))}
+        </AnimatePresence>
+        </ul>
+
     </div>
   );
 }

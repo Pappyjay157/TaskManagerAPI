@@ -42,3 +42,4 @@ C:\Users\ayool\OneDrive\Desktop\TaskManagerAPI\obj\Debug\net9.0\refint\TaskManag
 C:\Users\ayool\OneDrive\Desktop\TaskManagerAPI\obj\Debug\net9.0\TaskManagerAPI.pdb
 C:\Users\ayool\OneDrive\Desktop\TaskManagerAPI\obj\Debug\net9.0\TaskManagerAPI.genruntimeconfig.cache
 C:\Users\ayool\OneDrive\Desktop\TaskManagerAPI\obj\Debug\net9.0\ref\TaskManagerAPI.dll
+C:\Users\ayool\OneDrive\Desktop\TaskManagerAPI\obj\Debug\net9.0\TaskManagerAPI.sourcelink.json

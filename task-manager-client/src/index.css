@@ -28,6 +28,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+  color: #1f2937; /* Tailwind's text-gray-800 */
+
+
 }
 
 h1 {

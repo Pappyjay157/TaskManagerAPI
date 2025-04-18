@@ -86,12 +86,22 @@ function TaskList() {
   };
   
   
-    <Toaster position="top-right" reverseOrder={false} />
+
 
   return (
     
+    <div className="min-h-screen bg-gray-100 p-4">
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: '#fff',
+              color: '#333',
+              border: '1px solid #ccc'
+            }
+          }}
+        />
     <div className="p-4 max-w-xl mx-auto">
-    <Toaster position="top-right" reverseOrder={false} />
       <h1 className="text-2xl font-bold mb-4 text-gray-800">My Tasks</h1>
 
       {/* Task Form */}
@@ -121,9 +131,17 @@ function TaskList() {
             />
             <span>Mark this task as complete</span>
         </label>
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
-            Add Task
-        </button>
+        <button
+              type="submit"
+              className={`px-4 py-2 rounded font-semibold shadow transition 
+                ${newTask.title.trim() === "" 
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed" 
+                  : "bg-blue-600 text-white hover:bg-blue-700"}`}
+              disabled={newTask.title.trim() === ""}
+            >
+              Add Task
+            </button>
+
         </form>
 
       {/* Task List */}
@@ -137,7 +155,7 @@ function TaskList() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
                 layout
-                className="p-4 bg-white border rounded shadow"
+                className="p-4 bg-white text-gray-900 border rounded shadow"
             >
                 <h2 className="text-lg font-bold text-gray-900">{task.title}</h2>
                 <p className="text-gray-700">{task.description}</p>
@@ -148,13 +166,13 @@ function TaskList() {
                 <div className="space-x-2">
                     <button
                     onClick={() => handleToggle(task)}
-                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded"
+                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded shadow"
                     >
                     Toggle
                     </button>
                     <button
                     onClick={() => handleDelete(task.id)}
-                    className="px-2 py-1 text-xs bg-red-600 text-white rounded"
+                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded shadow"
                     >
                     Delete
                     </button>
@@ -165,6 +183,7 @@ function TaskList() {
         </AnimatePresence>
         </ul>
 
+    </div>
     </div>
   );
 }

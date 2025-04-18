@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 
 
-const API_URL = "http://localhost:5012/api/task";
+const API_URL = "https://taskmanagerapi-7.onrender.com/api/task";
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);

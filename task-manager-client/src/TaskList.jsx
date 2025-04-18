@@ -164,18 +164,20 @@ function TaskList() {
                     Status: {task.isComplete ? "✅ Done" : "❌ Pending"}
                 </p>
                 <div className="space-x-2">
-                    <button
-                    onClick={() => handleToggle(task)}
-                    className="px-2 py-1 text-blue-500 bg-yellow-400 text-white rounded shadow"
-                    >
-                    Toggle
-                    </button>
-                    <button
-                    onClick={() => handleDelete(task.id)}
-                    className="px-2 py-1 text-blue-500 bg-yellow-400 text-white rounded shadow"
-                    >
-                    Delete
-                    </button>
+                <button
+                  onClick={() => handleToggle(task)}
+                  className="px-3 py-1 text-sm bg-gray-300 text-gray-800 rounded shadow hover:bg-gray-400"
+                >
+                  Toggle
+                </button>
+
+                <button
+                  onClick={() => handleDelete(task.id)}
+                  className="px-3 py-1 text-sm bg-gray-300 text-gray-800 rounded shadow hover:bg-gray-400"
+                >
+                  Delete
+                </button>
+
                 </div>
                 </div>
             </motion.li>

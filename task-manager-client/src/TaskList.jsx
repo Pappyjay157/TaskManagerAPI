@@ -166,13 +166,13 @@ function TaskList() {
                 <div className="space-x-2">
                     <button
                     onClick={() => handleToggle(task)}
-                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded shadow"
+                    className="px-2 py-1 text-blue-500 bg-yellow-400 text-white rounded shadow"
                     >
                     Toggle
                     </button>
                     <button
                     onClick={() => handleDelete(task.id)}
-                    className="px-2 py-1 text-xs bg-yellow-400 text-white rounded shadow"
+                    className="px-2 py-1 text-blue-500 bg-yellow-400 text-white rounded shadow"
                     >
                     Delete
                     </button>

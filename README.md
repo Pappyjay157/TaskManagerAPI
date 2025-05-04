@@ -1,4 +1,4 @@
-# Task Manager Client
+# Task Manager
 
 This is the client-side application for the **Task Manager API**. It provides a user-friendly interface to interact with the backend API, allowing users to manage their tasks efficiently.
 
